@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc505b08-d332-40c6-b3ba-add16ccbddfc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/EbayClone/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/src/main/java/com/mariandev/ebayclone/EbayCloneApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EbayClone/src/test/java/com/mariandev/ebayclone/EbayCloneApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2VzF49mdKlka4sbrF9wIrgHy7AC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/maria/projects/ebay-clone",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc505b08-d332-40c6-b3ba-add16ccbddfc" name="Changes" comment="" />
+      <created>1695830807914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695830807914</updated>
+      <workItem from="1695830809500" duration="39000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
