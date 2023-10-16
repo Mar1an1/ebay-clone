@@ -2,6 +2,7 @@ package com.dev.mpolacek.ebayclone.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,8 @@ public class Item {
     private int startingPrice;
     private int purchasePrice;
     private String sellerUsername;
+    private Boolean deleted;
+    private Date modifiedAt;
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
     private List<Bid> bids;
     @ManyToOne
@@ -25,7 +28,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, String description, String photoUrl, int startingPrice, int purchasePrice, String sellerUsername, List<Bid> bids, User seller) {
+    public Item(String name, String description, String photoUrl, int startingPrice, int purchasePrice, String sellerUsername, List<Bid> bids, User seller, Boolean deleted, Date modifiedAt) {
         this.name = name;
         this.description = description;
         this.photoUrl = photoUrl;
@@ -34,6 +37,8 @@ public class Item {
         this.sellerUsername = sellerUsername;
         this.bids = bids;
         this.seller = seller;
+        this.deleted = deleted;
+        this.modifiedAt = modifiedAt;
     }
 
     public Long getId() {
@@ -98,5 +103,29 @@ public class Item {
 
     public void setBids(List<Bid> bids) {
         this.bids = bids;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public Date getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setModifiedAt(Date modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
     }
 }
