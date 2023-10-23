@@ -28,6 +28,9 @@ public class User {
     public User() {
     }
 
+    public User(String email, String username, String encodedPassword) {
+    }
+
     public Long getId() {
         return id;
     }

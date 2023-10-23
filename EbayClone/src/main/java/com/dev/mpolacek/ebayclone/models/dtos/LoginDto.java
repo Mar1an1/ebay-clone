@@ -18,6 +18,9 @@ public class LoginDto {
         this.token = token;
     }
 
+    public LoginDto(String email, String username, String status, String jwt) {
+    }
+
     public String getEmail() {
         return email;
     }
