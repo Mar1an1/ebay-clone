@@ -78,7 +78,13 @@ public class UserServiceImp implements UserService{
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(signUpDto.getPassword());
 
-        userRepository.save(new User(signUpDto.getEmail(), signUpDto.getUsername(), encodedPassword));
+        User newUser = new User();
+        newUser.setEmail(signUpDto.getEmail());
+        newUser.setUsername(signUpDto.getUsername());
+        newUser.setPassword(encodedPassword);
+
+        userRepository.save(newUser);
+
 
         signUpDto.setStatus("success");
         return signUpDto;
@@ -109,7 +115,14 @@ public class UserServiceImp implements UserService{
             claims.put("userId", userDetails.getId());
             String subject = userDetails.getUsername();
             String jwt = jwtManager.generateToken(claims, subject);
-            return new LoginDto(userDetails.getEmail(), userDetails.getUsername(),"success", jwt);
+
+            LoginDto responseDto = new LoginDto();
+            responseDto.setEmail(userDetails.getEmail());
+            responseDto.setUsername(userDetails.getUsername());
+            responseDto.setStatus("success");
+            responseDto.setToken(jwt);
+
+            return responseDto;
         }
 
         throw new UnauthorizedException("Username or Password does not match.");

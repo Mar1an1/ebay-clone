@@ -21,6 +21,9 @@ public class LoginDto {
     public LoginDto(String email, String username, String status, String jwt) {
     }
 
+    public LoginDto(String username, String success, String jwt) {
+    }
+
     public String getEmail() {
         return email;
     }
