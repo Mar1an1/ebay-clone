@@ -4,12 +4,14 @@ import com.dev.mpolacek.ebayclone.exceptions.NotFoundException;
 import com.dev.mpolacek.ebayclone.models.Item;
 import com.dev.mpolacek.ebayclone.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class ItemServiceImp implements ItemService{
@@ -46,7 +48,11 @@ public class ItemServiceImp implements ItemService{
     }
 
     @Override
-    public List<Item> getItemsBySellerId(Long id) {
-        return itemRepository.findAll().stream().filter(item -> Objects.equals(item.getId(), id)).collect(Collectors.toList());
+    public Page<Item> getItemsBySellerId(Long id, Pageable pageable) {
+        Page<Item> items = itemRepository.findBySellerUsernameAndDeletedIsFalse(id, pageable);
+        List<Item> itemList = new ArrayList<>();
+        items.forEach(itemList::add);
+
+        return new PageImpl<Item>(itemList, pageable, items.getTotalElements());
     }
 }
