@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,15 +30,6 @@ public class ItemServiceImp implements ItemService{
     }
 
     @Override
-    public void delete(long id) {
-        Optional<Item> item = itemRepository.findById(id);
-        if (item.isEmpty()) {
-            throw new NotFoundException();
-        }
-        itemRepository.delete(item.get());
-    }
-
-    @Override
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
@@ -54,5 +46,40 @@ public class ItemServiceImp implements ItemService{
         items.forEach(itemList::add);
 
         return new PageImpl<Item>(itemList, pageable, items.getTotalElements());
+    }
+
+    @Override
+    public Item updateItem(Item updatedItem) {
+        Optional<Item> existingProduct = itemRepository.findById(updatedItem.getId());
+
+        if (existingProduct.isEmpty()) {
+            throw new NotFoundException();
+        }
+
+        existingProduct.get().setName(updatedItem.getName());
+        existingProduct.get().setDescription(updatedItem.getDescription());
+        existingProduct.get().setPhotoUrl(updatedItem.getPhotoUrl());
+        existingProduct.get().setStartingPrice(updatedItem.getStartingPrice());
+        existingProduct.get().setPurchasePrice(updatedItem.getPurchasePrice());
+        existingProduct.get().setSellerUsername(updatedItem.getSellerUsername());
+        existingProduct.get().setDeleted(updatedItem.getDeleted());
+        existingProduct.get().setModifiedAt(updatedItem.getModifiedAt());
+        existingProduct.get().setBids(updatedItem.getBids());
+
+        return itemRepository.save(existingProduct.get());
+    }
+
+    @Override
+    public Item delete(long id) {
+        Optional<Item> existingItem = itemRepository.findById(id);
+
+        if (existingItem.isEmpty()) {
+            throw new NotFoundException();
+        }
+
+        existingItem.get().setDeleted(true);
+        existingItem.get().setModifiedAt(new Date());
+
+        return itemRepository.save(existingItem.get());
     }
 }

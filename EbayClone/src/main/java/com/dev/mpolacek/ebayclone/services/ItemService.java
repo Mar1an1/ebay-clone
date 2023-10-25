@@ -9,8 +9,9 @@ import java.util.Optional;
 
 public interface ItemService {
     void create(Item item);
-    void delete(long id);
+    Item delete(long id);
     List<Item> getAllItems();
     Optional<Item> getItemById(Long id);
     Page<Item> getItemsBySellerId(Long id, Pageable pageable);
+    Item updateItem(Item updatedItem);
 }
