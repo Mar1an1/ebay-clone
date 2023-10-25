@@ -15,4 +15,5 @@ public interface UserService {
     Optional<User> getUserById(Long id);
     SignUpDto signUp(SignUpDto signUpDto);
     LoginDto login(LoginDto loginRequest);
+    User findByEmail(String email);
 }

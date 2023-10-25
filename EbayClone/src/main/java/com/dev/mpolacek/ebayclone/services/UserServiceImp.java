@@ -127,4 +127,13 @@ public class UserServiceImp implements UserService{
 
         throw new UnauthorizedException("Username or Password does not match.");
     }
+
+    @Override
+    public User findByEmail(String email) {
+        try {
+            return userRepository.findByEmail(email);
+        } catch (Exception e) {
+            throw new NotFoundException();
+        }
+    }
 }

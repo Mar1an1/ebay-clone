@@ -21,13 +21,5 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<SignUpDto> signUp(@RequestBody SignUpDto signUpDto) {
-        return ResponseEntity.ok(userService.signUp(signUpDto));
-    }
 
-    @PostMapping("/login")
-    public ResponseEntity<LoginDto> login(@RequestBody LoginDto loginDto) {
-        return ResponseEntity.ok(userService.login(loginDto));
-    }
 }
