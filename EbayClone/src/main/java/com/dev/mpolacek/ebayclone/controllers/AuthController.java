@@ -30,8 +30,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginDto> login(@RequestBody LoginDto loginDto) {
-        return ResponseEntity.ok(userService.login(loginDto));
+    public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
+        LoginDto login = userService.login(loginDto);
+        return ResponseEntity.ok(login.getToken());
     }
 
     @PostMapping("/reset-password")
