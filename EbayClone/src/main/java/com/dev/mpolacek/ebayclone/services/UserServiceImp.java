@@ -74,6 +74,9 @@ public class UserServiceImp implements UserService{
         if (signUpDto.getPassword() == null || signUpDto.getPassword().isEmpty()) {
             throw new ValidationException("password is required.");
         }
+        if (userRepository.existsByEmail(signUpDto.getEmail())) {
+            throw new ValidationException(("email is not unique"));
+        }
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(signUpDto.getPassword());

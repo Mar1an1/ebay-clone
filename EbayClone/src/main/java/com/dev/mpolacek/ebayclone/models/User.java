@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String email;
@@ -18,14 +18,14 @@ public class User {
     @OneToMany(mappedBy = "seller")
     private List<Item> items;
 
+    public User() {
+    }
+
     public User(String username, String password, int greenBayDollars, String email) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.greenBayDollars = greenBayDollars;
-    }
-
-    public User() {
     }
 
     public User(String email, String username, String encodedPassword) {
